@@ -1,0 +1,266 @@
+drone:
+    vision:
+        file_check_timeout: 60.0
+        script: False
+        ffmpeg_thermal: False
+        video1:
+            h265: True
+            record_only: False
+            enable_detection: True
+
+            rgb_person_vehicle_model: "/home/nsd_user/code/catkin_birdseye/install/share/ngale_ros/models/yolov3_rgb_fp16.engine"
+            rgb_railcar_model: "/home/nsd_user/code/catkin_birdseye/install/share/ngale_ros/models/yolov3_rail_fp16.engine"
+
+            camera:
+                framerate: 30
+                sensor_id: 0
+                auto_exposure: 1
+
+            write:
+                framerate: 0
+                width_override: 3840
+                height_override: 2160
+                bitrate_override: 35000000
+                # qp_range: "25,38:25,38:25,38"
+                qp_range: "-1,-1:-1,-1:-1,-1"
+                level: "high5"
+                muxer: "mpegtsmux"
+
+                rate_control: 1
+                preset_level: 0
+                EnableTwopassCBR: 0
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframeinterval: 0
+                profile: 1
+                b_frames: 0
+                insert_sps_pps: 1
+                test_textoverlay: True
+                enc_type: 0  # ENC_HW
+
+            stream:
+                target_ip: "12.8.0.142"
+                # target_ip: "192.168.168.4"
+                target_port: 13002
+
+                framerate: 0
+                width_override: 960
+                height_override: 540
+
+                test_textoverlay: True
+                overlay:
+                    enable: True
+                    target: True
+                    update_rate: 5
+                    # x: 0.5
+                    # y: 0.5
+
+                enc_type: 0  # ENC_HW
+
+                rate_control: 1
+                bitrate_override: 400000
+                preset_level: 0
+                qp_range: "-1,-1:-1,-1:-1,-1"
+                EnableTwopassCBR: True
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframe_interval: 60
+                muxer: "mpegtsmux"
+                alignment: 7
+                si_interval: 1000
+                level: "high5"
+
+                profile: 2
+                b_frames: 0
+                insert_sps_pps: 1
+
+            detect:
+                width_override: 864
+                height_override: 480
+                format_encoded: "I420"
+                format_decoded: "BGR"
+                framerate: 3.0
+                update_rate: 3.0
+
+            snapshot:
+                enabled: False  # TEST
+                width_override: 3840
+                height_override: 2160
+                format_encoded: "I420"
+                format_decoded: "BGRx"
+
+            debug:
+                file_input: False
+                fname: "/data/test.mp4"
+
+        video2:
+            h265: True
+            record_only: False
+            enable_detection: True
+            device_override: "/dev/video1"
+
+            thermal_person_vehicle_model: "/home/nsd_user/code/catkin_birdseye/install/share/ngale_ros/models/yolov3_thermal_fp16.engine"
+
+            camera:
+                width: 640
+                height: 512
+                format: "BGR"
+                format2: "I420"
+                framerate: 30
+
+            write:
+                framerate: 30
+                width_override: 640
+                height_override: 512
+                bitrate_override: 1500000
+                qp_range: "25,38:25,38:25,38"
+                level: "high5"
+                muxer: "mpegtsmux"
+                format: "I420"
+
+                rate_control: 1
+                preset_level: 0
+                EnableTwopassCBR: 0
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframeinterval: 0
+                profile: 1
+                b_frames: 0
+                insert_sps_pps: 1
+
+                test_textoverlay: False
+                enc_type: 0  # ENC_HW
+
+            stream:
+                target_ip: "12.8.0.142"
+                # target_ip: "192.88.88.5"
+                target_port: 14002
+
+                framerate: 15
+                width_override: 320
+                height_override: 256
+
+                test_textoverlay: True
+                overlay:
+                    enable: True
+                    target: True
+                    update_rate: 5
+                    # x: 0.5
+                    # y: 0.5
+
+                enc_type: 0  # ENC_HW
+
+                rate_control: 1  # 1 = variable
+                bitrate_override: 200000
+                preset_level: 0  # 0 = UltraFastPreset - 3 = SlowPreset
+                qp_range: "-1,-1:-1,-1:-1,-1"
+
+                EnableTwopassCBR: 0
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframe_interval: 0
+                slice_intra_refresh: True
+                slice_intra_refresh_interval: 60
+                bit_packetization: True
+
+                muxer: "mpegtsmux"
+                alignment: 7
+                si_interval: 1000
+                level: "high5"
+
+                profile: 2
+                b_frames: 0
+                insert_sps_pps: 1
+
+            detect:
+                width_override: 416
+                height_override: 416
+                format_encoded: "I420"
+                format_decoded: "BGR"
+                framerate: 3.0
+                update_rate: 3.0
+
+            debug:
+                file_input: False
+                fname: "/data/test_t.mp4"
+
+    # skew drone gaze settings
+    gaze:
+        yaw_offset: 0.0  # positive adjusts right # radians
+        tilt_offset: 0.0  # positive adjusts down # radians
+
+    # deetection localizer params
+    detection:
+        timeout: 10   # 200000
+        rgb:
+            detection_delay: 0.36
+            image_width: 864
+            image_height: 480
+            # hfov: 0.82554073619 # 47.3 deg
+            # vfov: 0.56755949723 # 32.52 deg (computed using 57.4 deg dfov and 47.3 deg hfov)
+            hfov: 0.41777       # 23.7 deg
+            vfov: 0.28378       # 16.26 deg (computed using 57.4 deg dfov and 47.3 deg hfov)
+
+            max_objects: 5
+
+            yaw_offset: -0.0 # radians clockwise
+            tilt_offset: -0.1 # radians downwards
+
+            thresh: 0.35
+            decay_coef: 0.9
+            decay_cut: -1
+
+            collocate_gps: 5
+            collocate_pxl: 5
+            collocate_smoo: 0.8
+
+            follow:
+                gaze_tol: 0
+                epsilon: 0.8
+                ground_object_moved_dist_tol: 5
+                alt: 25
+                tilt: 38
+                # track_id_override: -1
+            filter:
+                locations: 0
+                yaw_tol: 0.1  # localizer
+
+        thermal:
+            detection_delay: 0.37
+            image_width: 640
+            image_height: 512
+            max_objects: 5
+
+            # hfov: 0.5934
+            # vfov: 0.4747
+            # hfov: 0.4189
+            # vfov: 0.3351
+            # yaw_offset: 0.05 # radians clockwise
+            # tilt_offset: -0.1 # radians downwards
+
+            hfov: 0.41887902047 # computed from 24 deg hfov and 640x512 aspect ratio
+            vfov: 0.33510321638 # computed from 24 deg hfov and 640x512 aspect ratio
+
+            tilt_offset: 0.0  # -0.35
+            yaw_offset:  0.0
+
+
+            thresh: 0.5
+            decay_coef: 0.9
+            decay_cut: -1
+
+            collocate_gps: 6
+            collocate_pxl: 5
+            collocate_smoo: 0.8
+
+            follow:
+                gaze_tol: 0
+                epsilon: 0.8
+                ground_object_moved_dist_tol: 5
+                alt: 25
+                tilt: 38
+                track_id_override: -1
+            filter:
+                locations: 0
+                yaw_tol: 0.1  # localizer
+

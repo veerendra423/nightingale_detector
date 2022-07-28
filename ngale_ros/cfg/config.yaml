@@ -1,0 +1,189 @@
+drone:
+    vision:
+        video1:
+            h265: True
+            # record_only: False
+            enable_detection: True
+
+            rgb_person_vehicle_model: "/home/ubuntu/code/catkin_birdseye/install/share/ngale_ros/models/yolov3_rgb_fp16.engine"
+            rgb_railcar_model: "/home/ubuntu/code/catkin_birdseye/install/share/ngale_ros/models/yolov3_rail_fp16.engine"
+
+            camera:
+                framerate: 30
+                sensor_id: 0
+                auto_exposure: 1
+
+            write:
+                framerate: 0
+                width_override: 3840
+                height_override: 2160
+                bitrate_override: 55000000
+                # qp_range: "25,38:25,38:25,38"
+                qp_range: "-1,-1:-1,-1:-1,-1"
+                level: "high5"
+                muxer: "mpegtsmux"
+
+                rate_control: 1
+                preset_level: 0
+                EnableTwopassCBR: 0
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframeinterval: 0
+                profile: 1
+                b_frames: 0
+                insert_sps_pps: 1
+                overlay:
+                    enable: False
+                enc_type: 0  # ENC_HW
+
+            stream:
+                # target_ip: "12.8.0.142"
+                target_ip: "192.88.88.5"
+                target_port: 13001
+
+                framerate: 0
+                # width_override: 960
+                # height_override: 540
+                # width_override: 1920
+                # height_override: 1080
+                width_override: 864
+                height_override: 480
+
+                overlay:
+                    enable: True
+                    target: True
+                    update_rate: 3
+                    # x: 0.5
+                    # y: 0.5
+
+                enc_type: 0  # ENC_HW
+
+                rate_control: 1
+                bitrate_override: 700000
+                preset_level: 0
+                qp_range: "-1,-1:-1,-1:-1,-1"
+                EnableTwopassCBR: True
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframe_interval: 60
+                muxer: "mpegtsmux"
+                alignment: 7
+                si_interval: 1000
+                level: "high5"
+
+                profile: 2
+                b_frames: 0
+                insert_sps_pps: 1
+
+            detect:
+                width_override: 864
+                height_override: 480
+                format_encoded: "I420"
+                format_decoded: "BGR"
+                framerate: 100.0
+                update_rate: 60.0
+
+            snapshot:
+                enabled: False  # TEST
+                width_override: 3840
+                height_override: 2160
+                format_encoded: "I420"
+                format_decoded: "BGRx"
+
+            debug:
+                file_input: False
+                fname: "/data/test.mp4"
+
+        video2:
+            h265: True
+            # record_only: True
+            enable_detection: True
+            device_override: "/dev/video1"
+
+            thermal_person_vehicle_model: "/home/ubuntu/code/catkin_birdseye/install/share/ngale_ros/models/yolov3_thermal_fp16.engine"
+
+            camera:
+                width: 640
+                height: 512
+                format: "BGR"
+                format2: "I420"
+                framerate: 30
+
+            write:
+                framerate: 30
+                width_override: 640
+                height_override: 512
+                bitrate_override: 3500000
+                qp_range: "-1,-1:-1,-1:-1,-1"
+                level: "high5"
+                muxer: "mpegtsmux"
+                format: "I420"
+
+                rate_control: 1
+                preset_level: 0
+                EnableTwopassCBR: 0
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframeinterval: 0
+                profile: 1
+                b_frames: 0
+                insert_sps_pps: 1
+
+                overlay:
+                    enable: False
+                enc_type: 0  # ENC_HW
+
+            stream:
+                # target_ip: "12.8.0.142"
+                target_ip: "192.88.88.5"
+                target_port: 14001
+
+                framerate: 30
+                width_override: 320
+                height_override: 256
+                # width_override: 640
+                # height_override: 512
+
+                overlay:
+                    enable: True
+                    target: True
+                    update_rate: 3
+                    # x: 0.5
+                    # y: 0.5
+
+                enc_type: 0  # ENC_HW
+
+                rate_control: 1  # 1 = variable
+                bitrate_override: 200000
+                preset_level: 0  # 0 = UltraFastPreset - 3 = SlowPreset
+                qp_range: "-1,-1:-1,-1:-1,-1"
+
+                EnableTwopassCBR: 0
+                vbv_size: 10
+                temporal_tradeoff: 0
+                iframe_interval: 0
+                slice_intra_refresh: True
+                slice_intra_refresh_interval: 60
+                bit_packetization: True
+
+                muxer: "mpegtsmux"
+                alignment: 7
+                si_interval: 1000
+                level: "high5"
+
+                profile: 2
+                b_frames: 0
+                insert_sps_pps: 1
+
+            detect:
+                width_override: 416
+                height_override: 416
+                format_encoded: "I420"
+                format_decoded: "BGR"
+                framerate: 100.0
+                update_rate: 60.0
+
+            debug:
+                file_input: False
+                fname: "/data/test_t.mp4"
+

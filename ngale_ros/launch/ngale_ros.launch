@@ -1,0 +1,7 @@
+<launch>
+  <arg name="output_mode" default="log"/>
+
+  <node name="ngale_exe" pkg="ngale_ros" type="ngale_exe" respawn="true" output="$(arg output_mode)"/>
+
+  <rosparam command="load" file="$(find ngale_ros)/cfg/config.yaml" />
+</launch>

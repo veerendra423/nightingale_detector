@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libklv.so -o libklv.so CMakeFiles/klv.dir/src/Klv.cpp.o CMakeFiles/klv.dir/src/KlvParser.cpp.o CMakeFiles/klv.dir/src/main.cpp.o 

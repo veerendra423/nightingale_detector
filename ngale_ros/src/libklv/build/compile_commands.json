@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/libklv/build",
+  "command": "/usr/bin/c++  -Dklv_EXPORTS -I/libklv/include  -fPIC   -std=gnu++11 -o CMakeFiles/klv.dir/src/Klv.cpp.o -c /libklv/src/Klv.cpp",
+  "file": "/libklv/src/Klv.cpp"
+},
+{
+  "directory": "/libklv/build",
+  "command": "/usr/bin/c++  -Dklv_EXPORTS -I/libklv/include  -fPIC   -std=gnu++11 -o CMakeFiles/klv.dir/src/KlvParser.cpp.o -c /libklv/src/KlvParser.cpp",
+  "file": "/libklv/src/KlvParser.cpp"
+},
+{
+  "directory": "/libklv/build",
+  "command": "/usr/bin/c++  -Dklv_EXPORTS -I/libklv/include  -fPIC   -std=gnu++11 -o CMakeFiles/klv.dir/src/main.cpp.o -c /libklv/src/main.cpp",
+  "file": "/libklv/src/main.cpp"
+},
+{
+  "directory": "/libklv/build",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googlemock/include    -std=gnu++11 -o CMakeFiles/runUnitTests.dir/test/KlvParserTest.cpp.o -c /libklv/test/KlvParserTest.cpp",
+  "file": "/libklv/test/KlvParserTest.cpp"
+},
+{
+  "directory": "/libklv/build",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googlemock/include    -std=gnu++11 -o CMakeFiles/runUnitTests.dir/test/KlvTest.cpp.o -c /libklv/test/KlvTest.cpp",
+  "file": "/libklv/test/KlvTest.cpp"
+},
+{
+  "directory": "/libklv/build/deps/googletest/googlemock",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googlemock/include -I/libklv/deps/googletest/googlemock -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googletest     -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++11 -o CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o -c /libklv/deps/googletest/googletest/src/gtest-all.cc",
+  "file": "/libklv/deps/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/libklv/build/deps/googletest/googlemock",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googlemock/include -I/libklv/deps/googletest/googlemock -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googletest     -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++11 -o CMakeFiles/gmock_main.dir/src/gmock-all.cc.o -c /libklv/deps/googletest/googlemock/src/gmock-all.cc",
+  "file": "/libklv/deps/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/libklv/build/deps/googletest/googlemock",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googlemock/include -I/libklv/deps/googletest/googlemock -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googletest     -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /libklv/deps/googletest/googlemock/src/gmock_main.cc",
+  "file": "/libklv/deps/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/libklv/build/deps/googletest/googlemock",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googlemock/include -I/libklv/deps/googletest/googlemock -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googletest     -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++11 -o CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o -c /libklv/deps/googletest/googletest/src/gtest-all.cc",
+  "file": "/libklv/deps/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/libklv/build/deps/googletest/googlemock",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googlemock/include -I/libklv/deps/googletest/googlemock -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googletest     -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /libklv/deps/googletest/googlemock/src/gmock-all.cc",
+  "file": "/libklv/deps/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/libklv/build/deps/googletest/googlemock/gtest",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googletest     -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /libklv/deps/googletest/googletest/src/gtest_main.cc",
+  "file": "/libklv/deps/googletest/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/libklv/build/deps/googletest/googlemock/gtest",
+  "command": "/usr/bin/c++   -I/libklv/include -I/libklv/deps/googletest/googletest/include -I/libklv/deps/googletest/googletest     -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /libklv/deps/googletest/googletest/src/gtest-all.cc",
+  "file": "/libklv/deps/googletest/googletest/src/gtest-all.cc"
+}
+]

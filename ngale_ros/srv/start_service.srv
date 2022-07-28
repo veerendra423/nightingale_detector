@@ -1,0 +1,8 @@
+int16 rgb_cam
+int8 rgb_det
+int16 thr_cam
+int8 thr_det
+string rgb_filename
+string thr_filename
+---
+string start_status
